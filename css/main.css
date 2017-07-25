@@ -1,6 +1,6 @@
 .container{
   border-style: groove;
-  width: 650px;
+  width: 750px;
   margin-top: 20px;
   border-radius: 20px;
 }
@@ -8,7 +8,7 @@
 .header{
   height: 40px;
   color: white;
-  background-color: red;
+  background-color: #1C4B7A;
   padding-top: 15px;
   font-size: 25px;
   border-top-left-radius: 20px;
@@ -19,21 +19,30 @@
   cursor: pointer;
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid #356595;
+  background-color: #CFE3F4;
+}
+.to-do:hover{
+  background-color: silver;
 }
 .done{
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid;
-  background-color: yellow;
+  text-decoration: line-through;
+  background-color: #23A8E1;
 }
 .agregar{
-  padding: 20px;
+  padding: 10px;
 }
 button{
-  padding: 10px;
+  padding: 20px;
   border: none;
   background-color: blue;
   color: white;
   border-radius: 10px;
+}
+#texto{
+  padding: 10px;
+  width: 75%;
 }

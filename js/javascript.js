@@ -72,7 +72,7 @@ function lista() {
   for(i in primera_lista){
     this.lista.push(primera_lista[i]);
   }
-  this.texto = document.getElementById('t');
+  this.texto = document.getElementById('texto');
   this.mostrar = function(element) {
     var html='';
     for(var i in this.lista){
@@ -89,7 +89,15 @@ function lista() {
     this.lista.push(new tarea(this.texto.value, this.lista.length +1));
     this.texto.value = '';
   }
+  this.tarea;
+  this.done=function(event) {
+    this.tarea = event.target;
+    if(this.tarea.checked){
+      this.tarea.completed=true;
+    }
+  }
 }
+
 var tareas = document.getElementById('tareas');
 var list = new lista();
 
@@ -99,4 +107,16 @@ var agregar = document.getElementById('Add');
 agregar.onclick = function() {
   list.añadir();
   list.mostrar(tareas);
+}
+
+var celdas = document.getElementsByClassName('to-do');
+
+//Para cada celda se le da el evento click
+for (var i = 0; i < celdas.length; i++) {
+    celdas[i].addEventListener('click',done);
+}
+var tarea;
+function done() {
+  tarea= event.target;
+  console.log(tarea);
 }
