@@ -67,19 +67,32 @@ function tarea(title,id ) {
   this.completed=false;
 }
 
-var tareas = document.getElementById('tareas');
-var agregar = document.getElementById('Add');
-var texto = document.getElementById('t');
-function mostrar() {
-  var html='';
+function lista() {
+  this.lista= [];
   for(i in primera_lista){
-    html += '<li>' +primera_lista[i].id + '. ' +primera_lista[i].title + '</li>';
+    this.lista.push(primera_lista[i]);
   }
-  tareas.innerHTML=html;
+  this.texto = document.getElementById('t');
+  this.mostrar = function(element) {
+    var html='';
+    for(var i in this.lista){
+      var elemento = this.lista[i];
+      html += '<li>' + elemento.id + '. ' + elemento.title + '</li>';
+    }
+    element.innerHTML = html;
+  }
+  this.añadir=function () {
+    this.lista.push(new tarea(this.texto.value, this.lista.length +1));
+    this.texto.value = '';
+  }
 }
-mostrar();
+var tareas = document.getElementById('tareas');
+var list = new lista();
+
+list.mostrar(tareas);
+
+var agregar = document.getElementById('Add');
 agregar.onclick = function() {
-  primera_lista.push(new tarea(texto.value, primera_lista.length +1));
-  mostrar();
-  texto.value='';
+  list.añadir();
+  list.mostrar(tareas);
 }
