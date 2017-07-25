@@ -1,0 +1,39 @@
+.container{
+  border-style: groove;
+  width: 650px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.header{
+  height: 40px;
+  color: white;
+  background-color: red;
+  padding-top: 15px;
+  font-size: 25px;
+  border-top-left-radius: 20px;
+  border-top-right-radius:20px;
+}
+
+.to-do{
+  cursor: pointer;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid;
+}
+.done{
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid;
+  background-color: yellow;
+}
+.agregar{
+  padding: 20px;
+}
+button{
+  padding: 10px;
+  border: none;
+  background-color: blue;
+  color: white;
+  border-radius: 10px;
+}

@@ -77,7 +77,11 @@ function lista() {
     var html='';
     for(var i in this.lista){
       var elemento = this.lista[i];
-      html += '<li>' + elemento.id + '. ' + elemento.title + '</li>';
+      if(elemento.completed){
+        html += '<div class="done">' + elemento.id + '. ' + elemento.title + '</div>';
+      } else {
+        html += '<div class="to-do">' + elemento.id + '. ' + elemento.title + '</div>';
+      }
     }
     element.innerHTML = html;
   }
