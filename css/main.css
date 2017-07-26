@@ -1,5 +1,5 @@
 .container{
-  border-style: groove;
+  border: none;
   width: 750px;
   margin-top: 20px;
   border-radius: 20px;
@@ -13,9 +13,13 @@
   font-size: 25px;
   border-top-left-radius: 20px;
   border-top-right-radius:20px;
+  font-family: 'Rockwell'
 }
 .instrucciones{
+  background-color: #265F9F;
+  color: #E6E6E6;
   padding: 10px;
+  font-family: 'Papyrus';
 }
 .to-do{
   cursor: pointer;
@@ -24,9 +28,11 @@
   background-color: #CFE3F4;
   width: 729px;
   border: none;
+  font-family: 'Century Gothic';
 }
+
 .to-do:hover{
-  background-color: silver;
+  background-color: #E6E6E6;
 }
 .done{
   padding: 10px;
@@ -35,18 +41,27 @@
   text-decoration: line-through;
   background-color: #23A8E1;
   width: 729px;
+  font-family: 'Century Gothic';
 }
 .agregar{
-  padding: 10px;
+  background-color: #265F9F;
+  padding: 2px;
+  padding-top: 3px;
 }
 #Add{
-  padding: 20px;
+  padding: 15px;
   border: none;
-  background-color: blue;
+  background-color: #2A5AA3;
   color: white;
-  border-radius: 10px;
+  font-size: 15px;
+}
+#Add:hover{
+  background-color:#A1C1F1; 
 }
 #texto{
-  padding: 10px;
-  width: 75%;
+  padding: 15px;
+  width: 600px;
+  border: none;
+  font-size: 15px;
 }
+

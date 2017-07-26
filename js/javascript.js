@@ -72,8 +72,11 @@ function lista() {
   for(i in primera_lista){
     this.lista.push(primera_lista[i]);
   }
+  //input
   this.texto = document.getElementById('texto');
+  //output
   this.tareas= document.getElementById('tareas');
+
   this.mostrar = function() {
     var html='';
     for(var i in this.lista){
@@ -81,14 +84,18 @@ function lista() {
       if(elemento.completed){
         html += '<input type="text" class="done" value="' + elemento.id + '. ' + elemento.title + '" readonly>';
       } else {
-        html += '<input type="text" class="to-do" onclick="tachar(this)"  onchange= "change(this)" id="'+elemento.id+'" value="' + elemento.id + '. ' + elemento.title + '"><br>';
+        html += '<input type="text" class="to-do" ondblclick="tachar(this)"  onchange= "change(this)" id="'+elemento.id+'" value="' + elemento.id + '. ' + elemento.title + '"><br>';
       }
     }
     
     this.tareas.innerHTML = html;
   }
   this.añadir=function () {
-    this.lista.push(new tarea(this.texto.value, this.lista.length +1));
+    if(this.texto.value==''){
+      alert('no ingreso nueva tarea');
+    } else {
+      this.lista.push(new tarea(this.texto.value, this.lista.length +1));
+    }
     this.texto.value = '';
   }
 
@@ -104,12 +111,12 @@ agregar.onclick = function() {
   list.mostrar();
 }
 
-function tachar(e){
-  list.lista[e.id - 1].completed = true;
+function tachar(event){
+  list.lista[event.id - 1].completed = true;
   list.mostrar();
 }
 
-function change(e){
-  list.lista[e.id - 1].title = e.value.slice(2);
+function change(event){
+  list.lista[event.id - 1].title = event.value.slice(3);
   list.mostrar();
 }
