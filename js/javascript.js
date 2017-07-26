@@ -82,7 +82,7 @@ function lista() {
     for(var i in this.lista){
       var elemento = this.lista[i];
       if(elemento.completed){
-        html += '<div class="done"><input type="checkbox" checked>'+ elemento.title + '</div>';
+        html += '<div class="done"><input type="checkbox" onclick="rehacer(this)" name="'+i+'"checked>'+ elemento.title + '</div>';
       } else {
         html += '<div class="to-do"><input type="checkbox" onclick="tachar(this)" name="'+i+'">'
         html += '<input type="text" class="toDo" onchange= "change(this)" id="'+i+'" value="' + elemento.title + '">'
@@ -123,5 +123,10 @@ function tachar(event){
 
 function change(event){
   list.lista[event.id].title = event.value;
+  list.mostrar();
+}
+
+function rehacer(event){
+  list.lista[event.name].completed = false;
   list.mostrar();
 }
