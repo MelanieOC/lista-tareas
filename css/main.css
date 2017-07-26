@@ -27,12 +27,22 @@
   text-align: left;
   background-color: #CFE3F4;
   width: 729px;
+}
+.toDo{
+   background-color: #CFE3F4;
+   width: 680px;
+   border: none;
+   font-family: 'Century Gothic';
+   font-size: 16px;
+}
+.eliminar{
+  cursor: pointer;
+  background-color: #CFE3F4;
   border: none;
-  font-family: 'Century Gothic';
 }
 
-.to-do:hover{
-  background-color: #E6E6E6;
+.eliminar:active{
+  background-color: #23A8E1;
 }
 .done{
   padding: 10px;

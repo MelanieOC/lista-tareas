@@ -82,9 +82,11 @@ function lista() {
     for(var i in this.lista){
       var elemento = this.lista[i];
       if(elemento.completed){
-        html += '<input type="text" class="done" value="' + elemento.id + '. ' + elemento.title + '" readonly>';
+        html += '<div class="done"><input type="checkbox" checked>'+ elemento.title + '</div>';
       } else {
-        html += '<input type="text" class="to-do" ondblclick="tachar(this)"  onchange= "change(this)" id="'+elemento.id+'" value="' + elemento.id + '. ' + elemento.title + '"><br>';
+        html += '<div class="to-do"><input type="checkbox" onclick="tachar(this)" name="'+i+'">'
+        html += '<input type="text" class="toDo" onchange= "change(this)" id="'+i+'" value="' + elemento.title + '">'
+        html += '<button class="eliminar" onclick="eliminar(this)" name="'+i+'">x</button></div>';
       }
     }
     
@@ -110,13 +112,16 @@ agregar.onclick = function() {
   list.añadir();
   list.mostrar();
 }
-
+function eliminar(event){
+  list.lista.splice(event.name,1);
+  list.mostrar();
+}
 function tachar(event){
-  list.lista[event.id - 1].completed = true;
+  list.lista[event.name].completed = true;
   list.mostrar();
 }
 
 function change(event){
-  list.lista[event.id - 1].title = event.value.slice(3);
+  list.lista[event.id].title = event.value;
   list.mostrar();
 }
