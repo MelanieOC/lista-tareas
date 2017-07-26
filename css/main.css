@@ -22,7 +22,6 @@
   font-family: 'Papyrus';
 }
 .to-do{
-  cursor: pointer;
   padding: 10px;
   text-align: left;
   background-color: #CFE3F4;
@@ -33,7 +32,6 @@
    width: 680px;
    border: none;
    font-family: 'Century Gothic';
-   font-size: 16px;
 }
 .eliminar{
   cursor: pointer;
@@ -44,6 +42,12 @@
 .eliminar:active{
   background-color: #23A8E1;
 }
+
+.eliminar2{
+  cursor: pointer;
+  background-color: #23A8E1;
+  border: none;
+}
 .done{
   padding: 10px;
   text-align: left;
@@ -51,6 +55,13 @@
   text-decoration: line-through;
   background-color: #23A8E1;
   width: 729px;
+  font-family: 'Century Gothic';
+}
+.do{
+  border: none;
+  text-decoration: line-through;
+  background-color: #23A8E1;
+  width: 680px;
   font-family: 'Century Gothic';
 }
 .agregar{

@@ -82,7 +82,9 @@ function lista() {
     for(var i in this.lista){
       var elemento = this.lista[i];
       if(elemento.completed){
-        html += '<div class="done"><input type="checkbox" onclick="rehacer(this)" name="'+i+'"checked>'+ elemento.title + '</div>';
+        html += '<div class="done"><input type="checkbox" onclick="rehacer(this)" name="'+i+'"checked>';
+        html += '<input type="text" class="do" onchange= "change(this)" id="'+i+'" value="' + elemento.title + '"readonly>'
+        html += '<button class="eliminar2" onclick="eliminar(this)" name="'+i+'">x</button></div>';
       } else {
         html += '<div class="to-do"><input type="checkbox" onclick="tachar(this)" name="'+i+'">'
         html += '<input type="text" class="toDo" onchange= "change(this)" id="'+i+'" value="' + elemento.title + '">'
