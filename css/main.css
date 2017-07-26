@@ -14,13 +14,16 @@
   border-top-left-radius: 20px;
   border-top-right-radius:20px;
 }
-
+.instrucciones{
+  padding: 10px;
+}
 .to-do{
   cursor: pointer;
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #356595;
   background-color: #CFE3F4;
+  width: 729px;
+  border: none;
 }
 .to-do:hover{
   background-color: silver;
@@ -28,9 +31,10 @@
 .done{
   padding: 10px;
   text-align: left;
-  border-bottom: 1px solid;
+  border: none;
   text-decoration: line-through;
   background-color: #23A8E1;
+  width: 729px;
 }
 .agregar{
   padding: 10px;

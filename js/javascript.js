@@ -73,50 +73,52 @@ function lista() {
     this.lista.push(primera_lista[i]);
   }
   this.texto = document.getElementById('texto');
-  this.mostrar = function(element) {
+  this.tareas= document.getElementById('tareas');
+  this.mostrar = function() {
     var html='';
     for(var i in this.lista){
       var elemento = this.lista[i];
       if(elemento.completed){
-        html += '<div class="done">' + elemento.id + '. ' + elemento.title + '</div>';
+        html += '<input type="text" class="done" value="' + elemento.id + '. ' + elemento.title + '" readonly>';
       } else {
-        html += '<div class="to-do">' + elemento.id + '. ' + elemento.title + '</div>';
+        html += '<input type="text" class="to-do" id="'+elemento.id+'" value="' + elemento.id + '. ' + elemento.title + '"><br>';
       }
     }
-    element.innerHTML = html;
+    this.tareas.innerHTML = html;
   }
   this.añadir=function () {
     this.lista.push(new tarea(this.texto.value, this.lista.length +1));
     this.texto.value = '';
   }
   this.tarea;
-  this.done=function(event) {
-    this.tarea = event.target;
-    if(this.tarea.checked){
-      this.tarea.completed=true;
+  this.done=function(contenido) {
+    this.tarea = contenido;
+    for (var i = 0; i < this.lista.length; i++) {
+      var estado = this.lista[i];
+      if(estado.id==this.tarea.id){
+        estado.completed=true;
+        this.mostrar();
+      }
     }
   }
 }
 
-var tareas = document.getElementById('tareas');
 var list = new lista();
 
-list.mostrar(tareas);
+list.mostrar();
 
 var agregar = document.getElementById('Add');
 agregar.onclick = function() {
   list.añadir();
-  list.mostrar(tareas);
+  list.mostrar();
 }
 
-var celdas = document.getElementsByClassName('to-do');
-
-//Para cada celda se le da el evento click
-for (var i = 0; i < celdas.length; i++) {
-    celdas[i].addEventListener('click',done);
-}
-var tarea;
-function done() {
-  tarea= event.target;
-  console.log(tarea);
+var tareaToDo = document.getElementsByTagName('input');
+var celda;
+for (var i = 0; i < tareaToDo.length; i++) {
+    var tarea2 = tareaToDo[i];
+    tarea2.ondblclick=function() {
+      console.log(event.target);
+      list.done(event.target);
+    }
 }
